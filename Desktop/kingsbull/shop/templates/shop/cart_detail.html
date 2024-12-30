@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart - King's Bull</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1e1e1e;
+        }
+        .navbar img {
+            height: 50px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .cart-detail {
+            padding: 20px;
+        }
+        .cart-item {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="/path/to/logo.png" alt="King's Bull Logo">
+        <div>
+            <a href="{% url 'product_list' %}">Products</a>
+            <a href="{% url 'cart_detail' %}">Cart</a>
+            <a href="{% url 'second_page' %}">Dashboard</a>
+        </div>
+    </div>
+    <div class="cart-detail">
+        <h1>Your Cart</h1>
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <h3>{{ item.product.name }}</h3>
+            <p>Quantity: {{ item.quantity }}</p>
+            <p>Price: ${{ item.product.price }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

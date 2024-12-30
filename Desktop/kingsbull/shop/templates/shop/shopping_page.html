@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping - King's Bull</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product-item {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            color: #000000;
+        }
+        .vip1 {
+            background: linear-gradient(135deg, green, yellow);
+        }
+        .vip2 {
+            background: linear-gradient(135deg, red, purple);
+        }
+        .vip3 {
+            background: linear-gradient(135deg, green, yellow, red);
+        }
+        .product-item h3 {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+        }
+        .product-item p {
+            margin: 5px 0;
+            color: #ffffff;
+        }
+        .product-item button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 5px;
+            font-size: 0.8rem;
+        }
+        .product-item button:hover {
+            background-color: #45a049;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'second_page' %}" class="close-button">&times;</a> <!-- X Icon to go back to the dashboard -->
+        <h1>Welcome to the Shopping Page</h1>
+        <div class="products">
+            <div class="product-item vip1">
+                <h3>VIP</h3>
+                <p>Become a mod and have access to powers</p>
+                <p>$1</p>
+                <button onclick="payWithPayPal(1)">Pay with PayPal</button>
+                <button onclick="payWithUPI(1)">Pay with UPI</button>
+                <button onclick="sendEmailPayment(1)">Send Email Payment</button>
+            </div>
+            <div class="product-item vip2">
+                <h3>VIP</h3>
+                <p>Support King's Bull</p>
+                <p>$2</p>
+                <button onclick="payWithPayPal(2)">Pay with PayPal</button>
+                <button onclick="payWithUPI(2)">Pay with UPI</button>
+                <button onclick="sendEmailPayment(2)">Send Email Payment</button>
+            </div>
+            <div class="product-item vip3">
+                <h3>VIP</h3>
+                <p>Talk personally with the owner</p>
+                <p>$5</p>
+                <button onclick="payWithPayPal(5)">Pay with PayPal</button>
+                <button onclick="payWithUPI(5)">Pay with UPI</button>
+                <button onclick="sendEmailPayment(5)">Send Email Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function payWithPayPal(amount) {
+            window.location.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=your-email@gmail.com&item_name=VIP&amount=${amount}&currency_code=USD`;
+            alert("After making the payment, please send an email to chkingsimba1@gmail.com to complete your VIP purchase.");
+        }
+
+        function payWithUPI(amount) {
+            alert(`Please send $${amount} using your preferred UPI app to your UPI ID: your-upi-id@bank. After making the payment, please send an email to chkingsimba1@gmail.com to complete your VIP purchase.`);
+        }
+
+        function sendEmailPayment(amount) {
+            alert(`Please send $${amount} to your-email@gmail.com. After making the payment, please send an email to chkingsimba1@gmail.com to complete your VIP purchase.`);
+        }
+    </script>
+</body>
+</html>

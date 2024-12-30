@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>King's Bull - Dashboard</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1e1e1e;
+        }
+        .navbar img {
+            height: 50px;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .icon {
+            margin: 20px;
+            padding: 20px;
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            display: inline-block;
+            width: 200px;
+            cursor: pointer;
+        }
+        .icon:hover {
+            background-color: #3e3e3e;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="/path/to/logo.png" alt="King's Bull Logo">
+        <div>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>Welcome to King's Bull Dashboard</h1>
+        <a href="{% url 'shopping_page' %}">
+            <div class="icon">Shopping</div>
+        </a>
+        <a href="{% url 'games_page' %}">
+            <div class="icon">Games</div>
+        </a>
+        <a href="{% url 'social_page' %}">
+            <div class="icon">Social</div>
+        </a>
+    </div>
+</body>
+</html>
